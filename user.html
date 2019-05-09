@@ -1,113 +1,238 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Formulario</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Registro de usuario</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/form-validation.css" rel="stylesheet">
 </head>
-<body>
 
-<p>Por favor introduzca sus datos a continuación</p>
+<body class="bg-light">
 
-<form action="user.php" method="POST">
+<div class="container">
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
+             alt="" width="72" height="72">
+        <h2>Formulario de registro de usuario</h2>
+        <p class="lead">Introduzca en los campos que aparecen a continuación los datos del usuario que desea
+            crear.</p>
+    </div>
 
-    <label>Nombre:
-        <input type="text" name="nombre">
-    </label><br><br>
+    <div class="row">
+        <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Datos personales</h4>
+            <form action="user.php" method="POST">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="firstName">Nombre</label>
+                        <input type="text" name="nombre" class="form-control" id="firstName" placeholder="" value=""
+                               required>
+                        <div class="invalid-feedback">
+                            Nombre requerido.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="lastName">Apellidos</label>
+                        <input type="text" name="apellidos" class="form-control" id="lastName" placeholder="" value=""
+                               required>
+                        <div class="invalid-feedback">
+                            Apellidos requeridos.
+                        </div>
+                    </div>
+                </div>
 
-    <label>Apellidos:
-        <input type="text" name="apellidos">
-    </label><br><br>
+                <div class="mb-3">
+                    <label for="birthday">Fecha de nacimiento</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">#</span>
+                        </div>
+                        <input type="date" name="fecha_nacimiento" class="form-control" id="birthday" required>
+                        <div class="invalid-feedback" style="width: 100%;">
+                            Fecha de nacimiento requerida.
+                        </div>
+                    </div>
+                </div>
 
-    <label>Fecha de Nacimiento:
-        <input type="date" name="fecha_nacimiento">
-    </label><br><br>
+                <div class="mb-3">
+                    <label>Sexo:</label>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="male" name="sexo" value="masculino"
+                               checked>
+                        <label class="custom-control-label" for="male">Masculino </label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="female" name="sexo" value="femenino">
+                        <label class="custom-control-label" for="female">Femenino </label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="others" name="sexo" value="otros">
+                        <label class="custom-control-label" for="others">Otros </label>
+                    </div>
+                </div>
 
-    <label>Email:
-        <input type="email" name="email">
-    </label><br><br>
+                <div class="mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="you@example.com"
+                           required>
+                    <div class="invalid-feedback">
+                        Dirección de email inválida.
+                    </div>
+                </div>
 
-    <label>DNI/NIF:
-        <input type="text" name="nif">
-    </label><br><br>
+                <div class="mb-3">
+                    <label for="nif">DNI/NIF</label>
+                    <input type="text" name="nif" class="form-control" id="nif" placeholder="12345678V" required>
+                    <div class="invalid-feedback">
+                        DNI/NIF requerido.
+                    </div>
+                </div>
 
-    <label>Dirección:
-        <input type="text" name="direccion">
-    </label><br><br>
+                <div class="mb-3">
+                    <label for="address">Dirección</label>
+                    <input type="text" name="direccion" class="form-control" id="address" placeholder="Calle de XYZ 1"
+                           required>
+                    <div class="invalid-feedback">
+                        Dirección requerida.
+                    </div>
+                </div>
 
-    <label>Provincia:
-        <select name="provincia">
-            <option value='alava'>Álava</option>
-            <option value='albacete'>Albacete</option>
-            <option value='alicante'>Alicante/Alacant</option>
-            <option value='almeria'>Almería</option>
-            <option value='asturias'>Asturias</option>
-            <option value='avila'>Ávila</option>
-            <option value='badajoz'>Badajoz</option>
-            <option value='barcelona'>Barcelona</option>
-            <option value='burgos'>Burgos</option>
-            <option value='caceres'>Cáceres</option>
-            <option value='cadiz'>Cádiz</option>
-            <option value='cantabria'>Cantabria</option>
-            <option value='castellon'>Castellón/Castelló</option>
-            <option value='ceuta'>Ceuta</option>
-            <option value='ciudadreal'>Ciudad Real</option>
-            <option value='cordoba'>Córdoba</option>
-            <option value='cuenca'>Cuenca</option>
-            <option value='girona'>Girona</option>
-            <option value='laspalmas'>Las Palmas</option>
-            <option value='granada'>Granada</option>
-            <option value='guadalajara'>Guadalajara</option>
-            <option value='guipuzcoa'>Guipúzcoa</option>
-            <option value='huelva'>Huelva</option>
-            <option value='huesca'>Huesca</option>
-            <option value='illesbalears'>Illes Balears</option>
-            <option value='jaen'>Jaén</option>
-            <option value='acoruña'>A Coruña</option>
-            <option value='larioja'>La Rioja</option>
-            <option value='leon'>León</option>
-            <option value='lleida'>Lleida</option>
-            <option value='lugo'>Lugo</option>
-            <option value='madrid'>Madrid</option>
-            <option value='malaga'>Málaga</option>
-            <option value='melilla'>Melilla</option>
-            <option value='murcia'>Murcia</option>
-            <option value='navarra'>Navarra</option>
-            <option value='ourense'>Ourense</option>
-            <option value='palencia'>Palencia</option>
-            <option value='pontevedra'>Pontevedra</option>
-            <option value='salamanca'>Salamanca</option>
-            <option value='segovia'>Segovia</option>
-            <option value='sevilla'>Sevilla</option>
-            <option value='soria'>Soria</option>
-            <option value='tarragona'>Tarragona</option>
-            <option value='santacruztenerife'>Santa Cruz de Tenerife</option>
-            <option value='teruel'>Teruel</option>
-            <option value='toledo'>Toledo</option>
-            <option value='valencia'>Valencia/Valéncia</option>
-            <option value='valladolid'>Valladolid</option>
-            <option value='vizcaya'>Vizcaya</option>
-            <option value='zamora'>Zamora</option>
-            <option value='zaragoza'>Zaragoza</option>
-        </select>
-    </label><br><br>
+                <div class="row">
+                    <div class="col-md-9 mb-3">
+                        <label for="state">Provincia</label>
+                        <select name="provincia" class="custom-select d-block w-100" id="state" required>
+                            <option value='alava'>Álava</option>
+                            <option value='albacete'>Albacete</option>
+                            <option value='alicante'>Alicante/Alacant</option>
+                            <option value='almeria'>Almería</option>
+                            <option value='asturias'>Asturias</option>
+                            <option value='avila'>Ávila</option>
+                            <option value='badajoz'>Badajoz</option>
+                            <option value='barcelona'>Barcelona</option>
+                            <option value='burgos'>Burgos</option>
+                            <option value='caceres'>Cáceres</option>
+                            <option value='cadiz'>Cádiz</option>
+                            <option value='cantabria'>Cantabria</option>
+                            <option value='castellon'>Castellón/Castelló</option>
+                            <option value='ceuta'>Ceuta</option>
+                            <option value='ciudadreal'>Ciudad Real</option>
+                            <option value='cordoba'>Córdoba</option>
+                            <option value='cuenca'>Cuenca</option>
+                            <option value='girona'>Girona</option>
+                            <option value='laspalmas'>Las Palmas</option>
+                            <option value='granada'>Granada</option>
+                            <option value='guadalajara'>Guadalajara</option>
+                            <option value='guipuzcoa'>Guipúzcoa</option>
+                            <option value='huelva'>Huelva</option>
+                            <option value='huesca'>Huesca</option>
+                            <option value='illesbalears'>Illes Balears</option>
+                            <option value='jaen'>Jaén</option>
+                            <option value='acoruña'>A Coruña</option>
+                            <option value='larioja'>La Rioja</option>
+                            <option value='leon'>León</option>
+                            <option value='lleida'>Lleida</option>
+                            <option value='lugo'>Lugo</option>
+                            <option value='madrid'>Madrid</option>
+                            <option value='malaga'>Málaga</option>
+                            <option value='melilla'>Melilla</option>
+                            <option value='murcia'>Murcia</option>
+                            <option value='navarra'>Navarra</option>
+                            <option value='ourense'>Ourense</option>
+                            <option value='palencia'>Palencia</option>
+                            <option value='pontevedra'>Pontevedra</option>
+                            <option value='salamanca'>Salamanca</option>
+                            <option value='segovia'>Segovia</option>
+                            <option value='sevilla'>Sevilla</option>
+                            <option value='soria'>Soria</option>
+                            <option value='tarragona'>Tarragona</option>
+                            <option value='santacruztenerife'>Santa Cruz de Tenerife</option>
+                            <option value='teruel'>Teruel</option>
+                            <option value='toledo'>Toledo</option>
+                            <option value='valencia'>Valencia/Valéncia</option>
+                            <option value='valladolid'>Valladolid</option>
+                            <option value='vizcaya'>Vizcaya</option>
+                            <option value='zamora'>Zamora</option>
+                            <option value='zaragoza'>Zaragoza</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Seleccione una provincia.
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="zip">Código postal</label>
+                        <input type="text" name="cp" class="form-control" id="zip" placeholder="" required>
+                        <div class="invalid-feedback">
+                            Código postal requerido.
+                        </div>
+                    </div>
+                </div>
 
-    <label>Código Postal:
-        <input type="text" name="cp">
-    </label><br><br>
+                <div class="mb-3">
+                    <label for="address">Teléfono</label>
+                    <input type="text" name="telefono" class="form-control" id="phone" placeholder="111111111"
+                           required>
+                    <div class="invalid-feedback">
+                        Teléfono requerido.
+                    </div>
+                </div>
 
-    <label>Teléfono:
-        <input type="text" name="telefono">
-    </label><br>
+                <button class="btn btn-primary btn-lg btn-block" name="submit" type="submit">Registrar usuario</button>
+            </form>
+        </div>
+    </div>
 
-    <label>Sexo:<br/>
-        <input type="radio" name="sexo" value="masculino">Masculino<br/>
-        <input type="radio" name="sexo" value="femenino">Femenino<br/>
-        <input type="radio" name="sexo" value="otros">Otros<br/>
-    </label><br><br>
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2017-2018 Company Name</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+    </footer>
+</div>
 
-    <input type="submit" value="Submit" name="submit">
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
 
-</form>
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
 
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
 </body>
 </html>
