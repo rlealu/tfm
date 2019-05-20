@@ -8,7 +8,10 @@ $db = "app";
 $dbconnect = mysqli_connect($hostname, $username, $password, $db);
 
 if ($dbconnect->connect_error) {
-    die("Fallo en la conexión a la base de datos: " . $dbconnect->connect_error);
+    $pagecontents = file_get_contents("result.html");
+    $pagecontents = str_replace("!!RESULTADO", "Ha ocurrido un error", $pagecontents);
+    $pagecontents = str_replace("!!MENSAJE", "Fallo en la conexión a la base de datos: " . $dbconnect->connect_error, $pagecontents);
+    die($pagecontents);
 }
 
 if (isset($_POST['submit'])) {
@@ -26,23 +29,35 @@ if (isset($_POST['submit'])) {
     if (strlen($nif) != 9 || is_numeric($nif[8])) {
         $pagecontents = file_get_contents("result.html");
         $pagecontents = str_replace("!!RESULTADO", "Ha ocurrido un error", $pagecontents);
-        $pagecontents = str_replace("!!MENSAJE", "DNI/NIF incorrecto", $pagecontents);
-        echo $pagecontents;
+        $pagecontents = str_replace("!!MENSAJE", "DNI/NIF incorrecto.", $pagecontents);
+        die($pagecontents);
     }
     if (strlen($cp) != 5) {
-        die('Código postal incorrecto.');
+        $pagecontents = file_get_contents("result.html");
+        $pagecontents = str_replace("!!RESULTADO", "Ha ocurrido un error", $pagecontents);
+        $pagecontents = str_replace("!!MENSAJE", "Código postal incorrecto.", $pagecontents);
+        die($pagecontents);
     }
     if (!is_numeric($telefono)) {
-        die('Teléfono incorrecto.');
+        $pagecontents = file_get_contents("result.html");
+        $pagecontents = str_replace("!!RESULTADO", "Ha ocurrido un error", $pagecontents);
+        $pagecontents = str_replace("!!MENSAJE", "Teléfono incorrecto.", $pagecontents);
+        die($pagecontents);
     }
 
     $query = "INSERT INTO usuarios (nombre, apellidos, fecha_nacimiento, email, nif, direccion, provincia, cp, telefono, sexo)
               VALUES ('$nombre', '$apellidos', '$fecha_nacimiento', '$email', '$nif', '$direccion', '$provincia', '$cp', '$telefono', '$sexo')";
 
     if (!mysqli_query($dbconnect, $query)) {
-        die('Ha ocurrido un error al crear el usuario.');
+        $pagecontents = file_get_contents("result.html");
+        $pagecontents = str_replace("!!RESULTADO", "Ha ocurrido un error", $pagecontents);
+        $pagecontents = str_replace("!!MENSAJE", "Fallo en la base de datos durante la creación del usuario.", $pagecontents);
+        die($pagecontents);
     } else {
-        echo "Usuario creado correctamente.";
+        $pagecontents = file_get_contents("result.html");
+        $pagecontents = str_replace("!!RESULTADO", "Usuario creado correctamente", $pagecontents);
+        $pagecontents = str_replace("!!MENSAJE", "", $pagecontents);
+        echo $pagecontents;
     }
 
 }
