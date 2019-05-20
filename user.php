@@ -24,7 +24,10 @@ if (isset($_POST['submit'])) {
     $sexo = $_POST['sexo'];
 
     if (strlen($nif) != 9 || is_numeric($nif[8])) {
-        die('DNI/NIF incorrecto.');
+        $pagecontents = file_get_contents("result.html");
+        $pagecontents = str_replace("!!RESULTADO", "Ha ocurrido un error", $pagecontents);
+        $pagecontents = str_replace("!!MENSAJE", "DNI/NIF incorrecto", $pagecontents);
+        echo $pagecontents;
     }
     if (strlen($cp) != 5) {
         die('Código postal incorrecto.');
