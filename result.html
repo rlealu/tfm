@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="assets/img/favicon.ico">
 
     <title>Registro de usuario</title>
 
@@ -23,23 +23,14 @@
 
 <div class="container">
     <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
-             alt="" width="72" height="72">
+        <img class="d-block mx-auto mb-4" src="assets/img/computer-156948__340.png" alt="" width="72" height="72">
         <h2>!!RESULTADO</h2>
         <p class="lead">!!MENSAJE</p>
 
-        <button class="btn btn-primary btn-lg btn-block"><a style="text-decoration : none; color : #ffffff;"
-                                                            href="user.html">Volver</a></button>
+        <button class="btn btn-primary btn-lg btn-block" id="back-btn">Volver</button>
     </div>
 
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017-2018 Company Name</p>
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-    </footer>
+    <footer class="my-5 pt-5 text-muted text-center text-small"></footer>
 </div>
 
 <!-- Bootstrap core JavaScript
@@ -71,6 +62,10 @@
                 }, false);
             });
         }, false);
+
+        $('#back-btn').click(function(){
+            window.location.href='user.html';
+        })
     })();
 </script>
 </body>
