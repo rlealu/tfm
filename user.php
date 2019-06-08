@@ -51,7 +51,8 @@ if (isset($_POST['submit'])) {
     if (!mysqli_query($dbconnect, $query)) {
         $pagecontents = file_get_contents("result.html");
         $pagecontents = str_replace("!!RESULTADO", "Ha ocurrido un error", $pagecontents);
-        $pagecontents = str_replace("!!MENSAJE", "Fallo en la base de datos durante la creación del usuario.", $pagecontents);
+        $message = "Fallo en la base de datos durante la creación del usuario: ".mysqli_error($dbconnect);
+        $pagecontents = str_replace("!!MENSAJE", $message, $pagecontents);
         die($pagecontents);
     } else {
         $pagecontents = file_get_contents("result.html");
