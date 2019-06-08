@@ -9,7 +9,7 @@ CREATE TABLE usuarios
     apellidos        CHAR(100),
     fecha_nacimiento DATE,
     email            CHAR(100),
-    nif              CHAR(9),
+    nif              CHAR(9) UNIQUE,
     direccion        CHAR(200),
     provincia        CHAR(30),
     cp               CHAR(5),
